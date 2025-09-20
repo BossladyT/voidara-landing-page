@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Join the Daily Voidara Business Meetings</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+
+<!-- CSS -->
+<style>
+  * {margin:0; padding:0; box-sizing:border-box; font-family: Montserrat, sans-serif;}
+  body {
+    min-height:100vh; color:#fff; overflow-x:hidden;
+    background: linear-gradient(270deg, #4b0082, #008080, #800080, #ff7f50);
+    background-size: 800% 800%; animation: gradientFlow 20s ease infinite; position: relative;
+  }
+  @keyframes gradientFlow {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+  }
+
+  .hero {text-align:center; padding:60px 20px 40px 20px; position:relative; z-index:1;}
+  .hero h1 {
+    font-size:3rem; font-weight:900; background: linear-gradient(90deg,#ffff00,#00ff00,#00ffff);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    animation: gradient-wave 5s linear infinite; display:inline-block; padding:10px 20px; border-radius:10px;
+  }
+  @keyframes gradient-wave {0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+  .hero p {font-size:1.3rem; margin-top:15px; font-weight:normal;}
+
+  #ai-particles {position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;}
+
+  .timers {display:flex; justify-content:center; gap:50px; margin:40px 0; position:relative; z-index:1; flex-wrap:wrap;}
+  .timer {background:rgba(0,0,0,0.5); padding:20px 30px; border-radius:15px; text-align:center; font-size:1.5rem;
+         min-width:180px; border:2px solid #00ffff; box-shadow:0 0 15px #00ffff,0 0 30px #00ffff,0 0 50px #00ffff;
+         animation: neonPulse 1.5s ease-in-out infinite alternate;}
+  .timer h2 {font-size:1.2rem; margin-bottom:10px; font-weight:bold;}
+  .timer p {font-size:2rem; font-weight:bold; color:#00ffff;}
+  @keyframes neonPulse {
+    from {box-shadow:0 0 10px #00ffff,0 0 20px #00ffff,0 0 30px #00ffff;}
+    to {box-shadow:0 0 20px #00ffff,0 0 40px #00ffff,0 0 60px #00ffff;}
+  }
+
+  .countries {display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin:40px 10px; position:relative; z-index:1;}
+  .country-tab {display:flex; flex-direction:column; align-items:center; justify-content:center; width:120px;
+                padding:10px; background:rgba(255,255,255,0.2); border:2px solid teal; border-radius:15px;
+                text-align:center; font-size:0.9rem; font-weight:bold; color:#fff;}
+  .country-tab img {width:40px; height:25px; margin-bottom:5px;}
+  .country-tab span {margin-top:5px; font-size:0.9rem; color:#fff;}
+
+  .join-section {text-align:center; margin:50px 0; position:relative; z-index:1;}
+  .join-section h2 {font-size:2rem; margin-bottom:20px;}
+  .join-section button {padding:15px 25px; margin:10px; border:none; border-radius:10px; font-size:1rem; font-weight:bold;
+                        cursor:pointer; transition:0.3s;}
+  .join-yes {background:#00ffcc; color:#000;}
+  .join-yes:hover {transform:scale(1.05);}
+  .join-no {background:#ff3300; color:#fff;}
+  .join-no:hover {transform:scale(1.05);}
+
+  .app-download {text-align:center; margin:30px 0; position:relative; z-index:1;}
+  .app-download p {margin-bottom:15px; font-weight:bold; font-size:1rem;}
+  .app-download a {margin:0 10px; display:inline-block;}
+  .app-download img {height:60px;}
+
+  .carousel-container {position:fixed; bottom:0; width:100%; overflow:hidden; background:rgba(0,0,0,0.3); padding:10px 0; z-index:1;}
+  .carousel {display:flex; gap:15px; animation: scroll-left 20s linear infinite;}
+  .carousel-item {background: linear-gradient(45deg,#4b0082,#008080,#800080,#ff7f50); border:2px solid teal;
+                  border-radius:10px; padding:10px 20px; font-weight:bold; white-space:nowrap; color:#fff;
+                  box-shadow:0 0 8px rgba(0,255,255,0.6);}
+  @keyframes scroll-left {0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+  @media (max-width:768px) {.timers{flex-direction:column; gap:20px;} .country-tab{width:100px;font-size:0.8rem;}}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.min.js"></script>
+</head>
+<body>
+
+<div id="ai-particles"></div>
+
+<section class="hero">
+  <h1>Ready to Boost Your Income and Simplify Your Life?</h1>
+  <p>Join thousands of busy professionals, entrepreneurs, and go-getters in our free daily Voidara Business Meetings, where AI Agents show you exactly how to save time, increase your earnings, and unlock new opportunities without overwhelm.</p>
+  <p>This is your chance to learn step-by-step strategies from experts, get inspired by real success stories, and connect with a supportive community eager to grow, all in just a short, powerful session each day.</p>
+</section>
+
+<header>
+  <h1 style="text-align:center;">JOIN US TODAY</h1>
+  <div class="timers">
+    <div class="timer">
+      <h2>1st Meeting</h2>
+      <p id="timer1">00:00:00</p>
+    </div>
+    <div class="timer">
+      <h2>2nd Meeting</h2>
+      <p id="timer2">00:00:00</p>
+    </div>
+  </div>
+</header>
+
+<!-- Country Tabs (restored exactly as provided) -->
+<div class="countries">
+  <div class="country-tab"><img src="https://flagcdn.com/w80/cr.png" alt="Costa Rica">Costa Rica <span>Daily 7:00 AM & 11:00 AM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/ky.png" alt="Cayman Islands">Cayman Islands <span>Daily 8:00 AM & 12:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/tt.png" alt="Trinidad & Tobago">Trinidad & Tobago <span>Daily 9:00 AM & 1:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/do.png" alt="Dominican Republic">Dominican Republic <span>Daily 9:00 AM & 1:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/us.png" alt="USA">USA <span>Daily 10:00 AM & 2:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/ca.png" alt="Canada">Canada <span>Daily 10:00 AM & 2:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/cm.png" alt="Cameroon">Cameroon <span>Daily 3:00 PM & 7:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/gb.png" alt="UK">UK <span>Daily 3:00 PM & 7:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/za.png" alt="South Africa">South Africa <span>Daily 3:00 PM & 7:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/ma.png" alt="Morocco">Morocco <span>Daily 3:00 PM & 7:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/ng.png" alt="Nigeria">Nigeria <span>Daily 3:00 PM & 7:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/gh.png" alt="Ghana">Ghana <span>Daily 3:00 PM & 7:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/eg.png" alt="Egypt">Egypt <span>Daily 4:00 PM & 8:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/de.png" alt="Germany">Germany <span>Daily 4:00 PM & 8:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/fr.png" alt="France">France <span>Daily 4:00 PM & 8:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/it.png" alt="Italy">Italy <span>Daily 4:00 PM & 8:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/es.png" alt="Spain">Spain <span>Daily 4:00 PM & 8:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/ae.png" alt="UAE">UAE (Dubai) <span>Daily 5:00 PM & 9:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/ke.png" alt="Kenya">Kenya <span>Daily 5:00 PM & 9:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/tz.png" alt="Tanzania">Tanzania <span>Daily 5:00 PM & 9:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/ug.png" alt="Uganda">Uganda <span>Daily 5:00 PM & 9:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/rw.png" alt="Rwanda">Rwanda <span>Daily 5:00 PM & 9:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/et.png" alt="Ethiopia">Ethiopia <span>Daily 5:00 PM & 9:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/bd.png" alt="Bangladesh">Bangladesh <span>Daily 7:00 PM & 11:00 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/in.png" alt="India">India <span>Daily 7:30 PM & 11:30 PM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/th.png" alt="Thailand">Thailand <span>Daily 8:00 PM & 12:00 AM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/ph.png" alt="Philippines">Philippines <span>Daily 9:00 PM & 1:00 AM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/au.png" alt="Australia">Australia <span>Daily 11:00 PM & 3:00 AM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/jp.png" alt="Japan">Japan <span>Daily 12:00 AM & 4:00 AM</span></div>
+  <div class="country-tab"><img src="https://flagcdn.com/w80/my.png" alt="Malaysia">Malaysia <span>Daily 12:00 AM & 4:00 AM</span></div>
+</div>
+
+<div class="join-section">
+  <h2>Seats are limited! Reserve your spot NOW!</h2>
+  <button class="join-yes" onclick="window.location.href='https://meetn.com/teamattraction'">Yes, I will attend</button>
+  <button class="join-no" onclick="window.location.href='https://youtu.be/LDDkg0FLIr0?si=M8BmWd7w4qN7a4HG'">No, I can’t make it</button>
+</div>
+
+<div class="app-download">
+  <p>Don't have the MeetN App? Click download NOW</p>
+  <a href="https://play.google.com/store/apps/details?id=com.meetn.app" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Download on Play Store" /></a>
+  <a href="https://apps.apple.com/us/app/meetn/id1667855552" target="_blank"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on App Store" /></a>
+</div>
+
+<div class="carousel-container">
+  <div class="carousel">
+    <div class="carousel-item">20% Direct Bonus</div>
+    <div class="carousel-item">20% Matching Bonus</div>
+    <div class="carousel-item">10% Binary Bonus</div>
+    <div class="carousel-item">10% Global Profit Pools</div>
+    <div class="carousel-item">20% Agent Bonus</div>
+    <div class="carousel-item">Rank Rewards</div>
+    <div class="carousel-item">30% Subscription Bonus</div>
+    <div class="carousel-item">20% Direct Bonus</div>
+    <div class="carousel-item">20% Matching Bonus</div>
+    <div class="carousel-item">10% Binary Bonus</div>
+    <div class="carousel-item">10% Global Profit Pools</div>
+    <div class="carousel-item">20% Agent Bonus</div>
+    <div class="carousel-item">Rank Rewards</div>
+    <div class="carousel-item">30% Subscription Bonus</div>
+  </div>
+</div>
+
+<!-- Countdown JS - your original logic restored -->
+<script>
+function startCountdown(id, targetHour, targetMinute) {
+  const el = document.getElementById(id);
+  function updateTimer() {
+    const now = new Date();
+    let target = new Date();
+    target.setHours(targetHour, targetMinute, 0, 0);
+    if(now > target){ target.setDate(target.getDate() + 1); }
+    let diff = target - now;
+    let hours = Math.floor(diff / (1000*60*60));
+    let minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+    let seconds = Math.floor((diff % (1000*60)) / 1000);
+    el.innerHTML = `${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+  }
+  updateTimer();
+  setInterval(updateTimer,1000);
+}
+
+// Replace these with your exact meeting times
+startCountdown('timer1', 9, 0); // 1st meeting at 9:00
+startCountdown('timer2', 13, 0); // 2nd meeting at 13:00
+</script>
+
+<!-- tsParticles -->
+<script>
+tsParticles.load("ai-particles",{
+  fpsLimit:60,
+  background:{color:"transparent"},
+  particles:{
+    number:{value:60,density:{enable:true,area:800}},
+    color:{value:"#00ffff"},
+    shape:{type:"circle"},
+    opacity:{value:0.5,random:true},
+    size:{value:2,random:true},
+    move:{enable:true,speed:0.8,direction:"none",random:true,straight:false,outMode:"out"},
+    line_linked:{enable:true,distance:150,color:"#00ffff",opacity:0.2,width:1}
+  },
+  interactivity:{events:{onHover:{enable:false},onClick:{enable:false}}},
+  detectRetina:true
+});
+</script>
+
+</body>
+</html>
