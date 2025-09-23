@@ -10,69 +10,86 @@
 
 <!-- CSS -->
 <style>
-  * {margin:0; padding:0; box-sizing:border-box; font-family: Montserrat, sans-serif;}
-  body {
-    min-height:100vh; color:#fff; overflow-x:hidden;
-    background: linear-gradient(270deg, #4b0082, #008080, #800080, #ff7f50);
-    background-size: 800% 800%; animation: gradientFlow 20s ease infinite; position: relative;
-  }
-  @keyframes gradientFlow {
-    0% {background-position:0% 50%;}
-    50% {background-position:100% 50%;}
-    100% {background-position:0% 50%;}
-  }
+* {margin:0; padding:0; box-sizing:border-box; font-family: Montserrat, sans-serif;}
+body {
+  min-height:100vh; color:#fff; overflow-x:hidden;
+  background: linear-gradient(270deg, #4b0082, #008080, #800080, #ff7f50);
+  background-size: 800% 800%; animation: gradientFlow 20s ease infinite; position: relative;
+}
+@keyframes gradientFlow {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
 
-  .hero {text-align:center; padding:60px 20px 40px 20px; position:relative; z-index:1;}
-  .hero h1 {
-    font-size:3rem; font-weight:900; background: linear-gradient(90deg,#ffff00,#00ff00,#00ffff);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    animation: gradient-wave 5s linear infinite; display:inline-block; padding:10px 20px; border-radius:10px;
-  }
-  @keyframes gradient-wave {0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
-  .hero p {font-size:1.3rem; margin-top:15px; font-weight:normal;}
+.hero {text-align:center; padding:60px 20px 40px 20px; position:relative; z-index:1;}
+.hero h1 {
+  font-size:3rem; font-weight:900; background: linear-gradient(90deg,#ffff00,#00ff00,#00ffff);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  animation: gradient-wave 5s linear infinite; display:inline-block; padding:10px 20px; border-radius:10px;
+}
+@keyframes gradient-wave {0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+.hero p {font-size:1.3rem; margin-top:15px; font-weight:normal;}
 
-  #ai-particles {position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;}
+#ai-particles {position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;}
 
-  .timers {display:flex; justify-content:center; gap:50px; margin:40px 0; position:relative; z-index:1; flex-wrap:wrap;}
-  .timer {background:rgba(0,0,0,0.5); padding:20px 30px; border-radius:15px; text-align:center; font-size:1.5rem;
-         min-width:180px; border:2px solid #00ffff; box-shadow:0 0 15px #00ffff,0 0 30px #00ffff,0 0 50px #00ffff;
-         animation: neonPulse 1.5s ease-in-out infinite alternate;}
-  .timer h2 {font-size:1.2rem; margin-bottom:10px; font-weight:bold;}
-  .timer p {font-size:2rem; font-weight:bold; color:#00ffff;}
-  @keyframes neonPulse {
-    from {box-shadow:0 0 10px #00ffff,0 0 20px #00ffff,0 0 30px #00ffff;}
-    to {box-shadow:0 0 20px #00ffff,0 0 40px #00ffff,0 0 60px #00ffff;}
-  }
+.timers {display:flex; justify-content:center; gap:50px; margin:40px 0; position:relative; z-index:1; flex-wrap:wrap;}
+.timer {background:rgba(0,0,0,0.5); padding:20px 30px; border-radius:15px; text-align:center; font-size:1.5rem;
+       min-width:180px; border:2px solid #00ffff; box-shadow:0 0 15px #00ffff,0 0 30px #00ffff,0 0 50px #00ffff;
+       animation: neonPulse 1.5s ease-in-out infinite alternate;}
+.timer h2 {font-size:1.2rem; margin-bottom:10px; font-weight:bold;}
+.timer p {font-size:2rem; font-weight:bold; color:#00ffff;}
+@keyframes neonPulse {
+  from {box-shadow:0 0 10px #00ffff,0 0 20px #00ffff,0 0 30px #00ffff;}
+  to {box-shadow:0 0 20px #00ffff,0 0 40px #00ffff,0 0 60px #00ffff;}
+}
 
-  .countries {display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin:40px 10px; position:relative; z-index:1;}
-  .country-tab {display:flex; flex-direction:column; align-items:center; justify-content:center; width:120px;
-                padding:10px; background:rgba(255,255,255,0.2); border:2px solid teal; border-radius:15px;
-                text-align:center; font-size:0.9rem; font-weight:bold; color:#fff;}
-  .country-tab img {width:40px; height:25px; margin-bottom:5px;}
-  .country-tab span {margin-top:5px; font-size:0.9rem; color:#fff;}
+.countries {display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin:40px 10px; position:relative; z-index:1;}
+.country-tab {display:flex; flex-direction:column; align-items:center; justify-content:center; width:120px;
+              padding:10px; background:rgba(255,255,255,0.2); border:2px solid teal; border-radius:15px;
+              text-align:center; font-size:0.9rem; font-weight:bold; color:#fff;}
+.country-tab img {width:40px; height:25px; margin-bottom:5px;}
+.country-tab span {margin-top:5px; font-size:0.9rem; color:#fff;}
 
-  .join-section {text-align:center; margin:50px 0; position:relative; z-index:1;}
-  .join-section h2 {font-size:2rem; margin-bottom:20px;}
-  .join-section button {padding:15px 25px; margin:10px; border:none; border-radius:10px; font-size:1rem; font-weight:bold;
-                        cursor:pointer; transition:0.3s;}
-  .join-yes {background:#00ffcc; color:#000;}
-  .join-yes:hover {transform:scale(1.05);}
-  .join-no {background:#ff3300; color:#fff;}
-  .join-no:hover {transform:scale(1.05);}
+.join-section {text-align:center; margin:50px 0; position:relative; z-index:1;}
+.join-section h2 {font-size:2rem; margin-bottom:20px;}
+.join-section button {padding:15px 25px; margin:10px; border:none; border-radius:10px; font-size:1rem; font-weight:bold;
+                      cursor:pointer; transition:0.3s;}
+.join-yes {background:#00ffcc; color:#000;}
+.join-yes:hover {transform:scale(1.05);}
+.join-no {background:#ff3300; color:#fff;}
+.join-no:hover {transform:scale(1.05);}
 
-  .app-download {text-align:center; margin:30px 0; position:relative; z-index:1;}
-  .app-download p {margin-bottom:15px; font-weight:bold; font-size:1rem;}
-  .app-download a {margin:0 10px; display:inline-block;}
-  .app-download img {height:60px;}
+.app-download {text-align:center; margin:30px 0; position:relative; z-index:1;}
+.app-download p {margin-bottom:15px; font-weight:bold; font-size:1rem;}
+.app-download a {margin:0 10px; display:inline-block;}
+.app-download img {height:60px;}
 
-  .carousel-container {position:fixed; bottom:0; width:100%; overflow:hidden; background:rgba(0,0,0,0.3); padding:10px 0; z-index:1;}
-  .carousel {display:flex; gap:15px; animation: scroll-left 20s linear infinite;}
-  .carousel-item {background: linear-gradient(45deg,#4b0082,#008080,#800080,#ff7f50); border:2px solid teal;
-                  border-radius:10px; padding:10px 20px; font-weight:bold; white-space:nowrap; color:#fff;
-                  box-shadow:0 0 8px rgba(0,255,255,0.6);}
-  @keyframes scroll-left {0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+/* Brand carousel top */
+#brand-carousel {overflow:hidden; position:relative; margin-top:20px;}
+#brand-carousel .carousel-track {
+  display:flex; gap:20px; animation: scroll-left-seamless 15s linear infinite;
+}
+#brand-carousel .carousel-track:hover {
+  animation-play-state: paused;
+}
+#brand-carousel .carousel-track .carousel-item {
+  flex:0 0 auto; display:flex; align-items:center; justify-content:center;
+  background:rgba(0,0,0,0.2); padding:10px 15px; border-radius:10px;
+  box-shadow:0 0 8px rgba(0,255,255,0.6);
+}
+#brand-carousel .carousel-track img {height:60px;}
+@keyframes scroll-left-seamless {0% {transform:translateX(0);} 100% {transform:translateX(-50%);} }
 
-  @media (max-width:768px) {.timers{flex-direction:column; gap:20px;} .country-tab{width:100px;font-size:0.8rem;}}
+/* Bottom text carousel */
+.carousel-container {position:fixed; bottom:0; width:100%; overflow:hidden; background:rgba(0,0,0,0.3); padding:10px 0; z-index:1;}
+.carousel {display:flex; gap:15px; animation: scroll-left 20s linear infinite;}
+.carousel-item {background: linear-gradient(45deg,#4b0082,#008080,#800080,#ff7f50); border:2px solid teal;
+                border-radius:10px; padding:10px 20px; font-weight:bold; white-space:nowrap; color:#fff;
+                box-shadow:0 0 8px rgba(0,255,255,0.6);}
+@keyframes scroll-left {0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+@media (max-width:768px) {.timers{flex-direction:column; gap:20px;} .country-tab{width:100px;font-size:0.8rem;}}
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.min.js"></script>
@@ -80,6 +97,25 @@
 <body>
 
 <div id="ai-particles"></div>
+
+<!-- Brand Image Carousel (Top) -->
+<div class="carousel-container" id="brand-carousel">
+  <div class="carousel-track">
+    <div class="carousel-item"><img src="https://i.imgur.com/yhlWlrz.jpeg" alt="Brand 1"></div>
+    <div class="carousel-item"><img src="https://i.imgur.com/06DVIWC.jpeg" alt="Brand 2"></div>
+    <div class="carousel-item"><img src="https://i.imgur.com/wZYdEpf.jpeg" alt="Brand 3"></div>
+    <div class="carousel-item"><img src="https://i.imgur.com/mCEyvKM.jpeg" alt="Brand 4"></div>
+    <div class="carousel-item"><img src="https://i.imgur.com/km5dB7X.jpeg" alt="Brand 5"></div>
+    <div class="carousel-item"><img src="https://i.imgur.com/lcbuR4g.jpeg" alt="Brand 6"></div>
+    <!-- Duplicate items for seamless loop -->
+    <div class="carousel-item"><img src="https://i.imgur.com/yhlWlrz.jpeg" alt="Brand 1"></div>
+    <div class="carousel-item"><img src="https://i.imgur.com/06DVIWC.jpeg" alt="Brand 2"></div>
+    <div class="carousel-item"><img src="https://i.imgur.com/wZYdEpf.jpeg" alt="Brand 3"></div>
+    <div class="carousel-item"><img src="https://i.imgur.com/mCEyvKM.jpeg" alt="Brand 4"></div>
+    <div class="carousel-item"><img src="https://i.imgur.com/km5dB7X.jpeg" alt="Brand 5"></div>
+    <div class="carousel-item"><img src="https://i.imgur.com/lcbuR4g.jpeg" alt="Brand 6"></div>
+  </div>
+</div>
 
 <section class="hero">
   <h1>Ready to Boost Your Income and Simplify Your Life?</h1>
@@ -101,7 +137,7 @@
   </div>
 </header>
 
-<!-- Country Tabs (restored exactly as provided) -->
+<!-- Country Tabs -->
 <div class="countries">
   <div class="country-tab"><img src="https://flagcdn.com/w80/cr.png" alt="Costa Rica">Costa Rica <span>Daily 7:00 AM & 11:00 AM</span></div>
   <div class="country-tab"><img src="https://flagcdn.com/w80/ky.png" alt="Cayman Islands">Cayman Islands <span>Daily 8:00 AM & 12:00 PM</span></div>
@@ -166,7 +202,7 @@
   </div>
 </div>
 
-<!-- Countdown JS - your original logic restored -->
+<!-- Countdown JS -->
 <script>
 function startCountdown(id, targetHour, targetMinute) {
   const el = document.getElementById(id);
@@ -185,9 +221,9 @@ function startCountdown(id, targetHour, targetMinute) {
   setInterval(updateTimer,1000);
 }
 
-// Replace these with your exact meeting times
-startCountdown('timer1', 9, 0); // 1st meeting at 9:00
-startCountdown('timer2', 13, 0); // 2nd meeting at 13:00
+// Meeting times
+startCountdown('timer1', 9, 0);
+startCountdown('timer2', 13, 0);
 </script>
 
 <!-- tsParticles -->
