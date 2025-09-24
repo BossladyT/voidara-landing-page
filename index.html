@@ -204,26 +204,52 @@ body {
 
 <!-- Countdown JS -->
 <script>
-function startCountdown(id, targetHour, targetMinute) {
+function startCountdown(id, targetHour, targetMinute, baseOffset) {
+  // baseOffset = offset in minutes from UTC for base timezone (AST = UTC-4 hours = -240 minutes)
   const el = document.getElementById(id);
+
   function updateTimer() {
     const now = new Date();
-    let target = new Date();
-    target.setHours(targetHour, targetMinute, 0, 0);
-    if(now > target){ target.setDate(target.getDate() + 1); }
-    let diff = target - now;
-    let hours = Math.floor(diff / (1000*60*60));
-    let minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
-    let seconds = Math.floor((diff % (1000*60)) / 1000);
-    el.innerHTML = `${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+
+    // Calculate current UTC time in ms
+    const nowUtc = now.getTime() + (now.getTimezoneOffset() * 60000);
+
+    // Construct the next meeting time in base timezone (AST) at targetHour:targetMinute
+    const baseNow = new Date(nowUtc + baseOffset * 60000); // now in base time zone
+
+    let meetingBaseTime = new Date(baseNow);
+    meetingBaseTime.setHours(targetHour, targetMinute, 0, 0);
+
+    // If meeting time in base timezone has passed today, set to next day
+    if (meetingBaseTime <= baseNow) {
+      meetingBaseTime.setDate(meetingBaseTime.getDate() + 1);
+    }
+
+    // Convert the meeting time back to UTC ms
+    const meetingUtcTime = meetingBaseTime.getTime() - (baseOffset * 60000);
+
+    // Calculate difference to meeting time from now in ms
+    let diff = meetingUtcTime - nowUtc;
+
+    if (diff < 0) diff = 0; // past event safety
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    el.innerHTML = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
   }
+
   updateTimer();
-  setInterval(updateTimer,1000);
+  setInterval(updateTimer, 1000);
 }
 
-// Meeting times
-startCountdown('timer1', 9, 0);
-startCountdown('timer2', 13, 0);
+// AST timezone offset is -4 hours = -240 minutes
+const ASTOffset = -240;
+
+// Initialize countdowns pegged to AST times
+startCountdown('timer1', 9, 0, ASTOffset);
+startCountdown('timer2', 13, 0, ASTOffset);
 </script>
 
 <!-- tsParticles -->
